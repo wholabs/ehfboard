@@ -7,10 +7,8 @@ const modeItems = [
 function Sidebar({ mode, onModeChange, onAddFlowNode, onAddErdTable }) {
   return (
     <aside className="border-r border-slate-300 bg-slate-50 flex h-full w-[200px] flex-col p-2 shrink-0 overflow-y-auto">
-      <div className="h-14 flex items-center justify-center px-2 mb-4 rounded-md bg-[#0B1E3C]">
-        <h1 className="text-sm font-bold tracking-wider text-white uppercase">
-          EHF Workspace
-        </h1>
+      <div className="h-16 flex items-center justify-center mb-4 rounded-md bg-white overflow-hidden">
+        <img src="/logo.png" alt="Wholabs" className="h-full w-full object-contain" />
       </div>
 
       <div className="space-y-1">
