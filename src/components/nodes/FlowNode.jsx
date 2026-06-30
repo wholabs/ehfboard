@@ -110,11 +110,11 @@ function FlowNode({ id, data, isConnectable, selected }) {
           </div>
         )}
 
-        {showMenu && (
-          <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max">
+          {showMenu && (
+          <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max dark:bg-slate-800 dark:border-slate-600">
             <div className="p-3 space-y-3 min-w-[200px]">
               <div>
-                <div className="text-[10px] font-bold text-slate-600 mb-2">
+                <div className="text-[10px] font-bold text-slate-600 mb-2 dark:text-slate-300">
                   Color
                 </div>
                 <div className="space-y-2">
@@ -249,11 +249,11 @@ function FlowNode({ id, data, isConnectable, selected }) {
           </div>
         </div>
 
-        {showMenu && (
-          <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max">
+          {showMenu && (
+          <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max dark:bg-slate-800 dark:border-slate-600">
             <div className="p-3 space-y-3 min-w-[200px]">
               <div>
-                <div className="text-[10px] font-bold text-slate-600 mb-2">
+                <div className="text-[10px] font-bold text-slate-600 mb-2 dark:text-slate-300">
                   Color
                 </div>
                 <div className="space-y-2">
@@ -396,11 +396,11 @@ function FlowNode({ id, data, isConnectable, selected }) {
           </div>
         )}
 
-        {showMenu && (
-          <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max">
+          {showMenu && (
+          <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max dark:bg-slate-800 dark:border-slate-600">
             <div className="p-3 space-y-3 min-w-[200px]">
               <div>
-                <div className="text-[10px] font-bold text-slate-600 mb-2">
+                <div className="text-[10px] font-bold text-slate-600 mb-2 dark:text-slate-300">
                   Color
                 </div>
                 <div className="space-y-2">
@@ -542,11 +542,11 @@ function FlowNode({ id, data, isConnectable, selected }) {
           </div>
         </div>
 
-        {showMenu && (
-          <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max">
+          {showMenu && (
+          <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max dark:bg-slate-800 dark:border-slate-600">
             <div className="p-3 space-y-3 min-w-[200px]">
               <div>
-                <div className="text-[10px] font-bold text-slate-600 mb-2">
+                <div className="text-[10px] font-bold text-slate-600 mb-2 dark:text-slate-300">
                   Color
                 </div>
                 <div className="space-y-2">
@@ -687,11 +687,11 @@ function FlowNode({ id, data, isConnectable, selected }) {
           </div>
         </div>
 
-        {showMenu && (
-          <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max">
+          {showMenu && (
+          <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max dark:bg-slate-800 dark:border-slate-600">
             <div className="p-3 space-y-3 min-w-[200px]">
               <div>
-                <div className="text-[10px] font-bold text-slate-600 mb-2">
+                <div className="text-[10px] font-bold text-slate-600 mb-2 dark:text-slate-300">
                   Color
                 </div>
                 <div className="space-y-2">
@@ -822,13 +822,13 @@ function FlowNode({ id, data, isConnectable, selected }) {
         </div>
       )}
 
-      {showMenu && (
-        <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max">
-          <div className="p-3 space-y-3 min-w-[200px]">
-            <div>
-              <div className="text-[10px] font-bold text-slate-600 mb-2">
-                Color
-              </div>
+          {showMenu && (
+          <div className="absolute top-full left-0 mt-2 bg-white border border-slate-300 rounded-lg shadow-lg z-20 min-w-max dark:bg-slate-800 dark:border-slate-600">
+            <div className="p-3 space-y-3 min-w-[200px]">
+              <div>
+                <div className="text-[10px] font-bold text-slate-600 mb-2 dark:text-slate-300">
+                  Color
+                </div>
               <div className="space-y-2">
                 <div className="flex gap-1">
                   {presetColors.slice(0, 5).map((color) => (

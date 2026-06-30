@@ -13,7 +13,7 @@ const nodeTypes = {
   erdNode: ErdNode,
 };
 
-function ERDCanvas() {
+function ERDCanvas({ canvasRef }) {
   const nodes = useStore((state) => state.erdNodes);
   const edges = useStore((state) => state.erdEdges);
   const onNodesChange = useStore((state) => state.onErdNodesChange);
@@ -49,7 +49,7 @@ function ERDCanvas() {
   );
 
   return (
-    <div className="h-full w-full relative bg-white">
+    <div ref={canvasRef} className="h-full w-full relative bg-white dark:bg-slate-900">
       <ReactFlow
         fitView
         nodes={nodesWithCallbacks}

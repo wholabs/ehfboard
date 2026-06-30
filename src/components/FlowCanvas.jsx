@@ -13,7 +13,7 @@ const nodeTypes = {
   flowNode: FlowNode,
 };
 
-function FlowCanvas() {
+function FlowCanvas({ canvasRef }) {
   const nodes = useStore((state) => state.flowNodes);
   const edges = useStore((state) => state.flowEdges);
   const onNodesChange = useStore((state) => state.onFlowNodesChange);
@@ -48,7 +48,7 @@ function FlowCanvas() {
   );
 
   return (
-    <div className="h-full w-full relative bg-white">
+    <div ref={canvasRef} className="h-full w-full relative bg-white dark:bg-slate-900">
       <ReactFlow
         fitView
         nodes={nodesWithCallbacks}

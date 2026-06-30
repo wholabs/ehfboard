@@ -205,7 +205,7 @@ function WhiteboardTools() {
       </div>
 
       {/* Info Section */}
-      <div className="bg-blue-50 border border-blue-200 rounded p-2 text-xs text-blue-700">
+      <div className="bg-blue-50 border border-blue-200 rounded p-2 text-xs text-blue-700 dark:bg-blue-900/40 dark:border-blue-700 dark:text-blue-200">
         <p className="font-semibold mb-1">Whiteboard Tips:</p>
         <ul className="space-y-0.5 list-disc list-inside">
           <li>Use tldraw toolbar for shapes</li>

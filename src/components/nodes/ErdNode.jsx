@@ -9,8 +9,7 @@ function ErdNode({ id, data, isConnectable }) {
   const [showFieldForm, setShowFieldForm] = useState(false);
   const [newFieldName, setNewFieldName] = useState("");
   const [newFieldType, setNewFieldType] = useState("TEXT");
-  const [width, setWidth] = useState(data.width || 280);
-  const [height, setHeight] = useState(data.height || 300);
+  const [width] = useState(data.width || 280);
 
   const fieldTypes = [
     "INTEGER",
@@ -48,36 +47,13 @@ function ErdNode({ id, data, isConnectable }) {
     }
   };
 
-  const handleResizeStart = (e) => {
-    e.preventDefault();
-    const startX = e.clientX;
-    const startY = e.clientY;
-    const startWidth = width;
-    const startHeight = height;
-
-    const handleMouseMove = (moveEvent) => {
-      const deltaX = moveEvent.clientX - startX;
-      const deltaY = moveEvent.clientY - startY;
-      setWidth(Math.max(200, startWidth + deltaX));
-      setHeight(Math.max(150, startHeight + deltaY));
-    };
-
-    const handleMouseUp = () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseup", handleMouseUp);
-  };
-
   return (
     <div
-      className="overflow-hidden rounded-lg border-2 border-blue-500 shadow-lg bg-white relative"
-      style={{ width: `${width}px`, minHeight: `${height}px` }}
+      className="overflow-hidden rounded-lg border-2 border-blue-500 shadow-lg bg-white relative dark:bg-slate-800 dark:border-blue-600"
+      style={{ width: `${width}px` }}
     >
       {/* Header */}
-      <div className="px-3 py-2 bg-blue-600 text-white font-bold text-sm flex items-center justify-between">
+      <div className="px-3 py-2 bg-blue-600 text-white font-bold text-sm flex items-center justify-between dark:bg-blue-700">
         <div
           onClick={() => setEditingTableName(true)}
           className="cursor-pointer hover:opacity-80"
@@ -112,15 +88,12 @@ function ErdNode({ id, data, isConnectable }) {
       </div>
 
       {/* Fields */}
-      <div
-        className="px-3 py-2"
-        style={{ maxHeight: `${height - 100}px`, overflowY: "auto" }}
-      >
+      <div className="px-3 py-2">
         {data.fields?.length > 0 ? (
           data.fields.map((field, index) => (
             <div
               key={`${data.tableName}-${field.name}-${index}`}
-              className="py-1.5 border-b border-gray-200 last:border-b-0 group hover:bg-blue-50 -mx-3 px-3 transition-colors flex items-center justify-between"
+              className="py-1.5 border-b border-gray-200 last:border-b-0 group hover:bg-blue-50 -mx-3 px-3 transition-colors flex items-center justify-between dark:border-slate-600 dark:hover:bg-slate-700"
             >
               {editingFieldIndex === index ? (
                 <div className="w-full space-y-2 py-2">
@@ -182,10 +155,10 @@ function ErdNode({ id, data, isConnectable }) {
                     <span className="text-blue-700 font-semibold text-xs">
                       {field.key ? `[${field.key}]` : "  "}{" "}
                     </span>
-                    <span className="text-gray-800 text-sm font-medium">
+                    <span className="text-gray-800 text-sm font-medium dark:text-slate-200">
                       {field.name}
                     </span>
-                    <span className="text-gray-500 text-xs ml-1">
+                    <span className="text-gray-500 text-xs ml-1 dark:text-slate-400">
                       {field.type}
                     </span>
                   </div>
@@ -211,9 +184,9 @@ function ErdNode({ id, data, isConnectable }) {
             </div>
           ))
         ) : (
-          <div className="text-center text-gray-400 text-xs py-3">
-            No fields
-          </div>
+            <div className="text-center text-gray-400 text-xs py-3 dark:text-slate-500">
+              No fields
+            </div>
         )}
 
         {/* Add Field Form */}
@@ -259,19 +232,12 @@ function ErdNode({ id, data, isConnectable }) {
         {!showFieldForm && (
           <button
             onClick={() => setShowFieldForm(true)}
-            className="mt-2 w-full bg-blue-50 hover:bg-blue-100 text-blue-700 rounded px-2 py-1 text-xs font-semibold border border-blue-200"
+            className="mt-2 w-full bg-blue-50 hover:bg-blue-100 text-blue-700 rounded px-2 py-1 text-xs font-semibold border border-blue-200 dark:bg-blue-900/40 dark:text-blue-200 dark:border-blue-700 dark:hover:bg-blue-800/50"
           >
             + Add Field
           </button>
         )}
       </div>
-
-      {/* Resize Handle */}
-      <div
-        className="absolute bottom-0 right-0 w-4 h-4 bg-blue-400 cursor-se-resize rounded-tl hover:bg-blue-600 transition-colors"
-        onMouseDown={handleResizeStart}
-        title="Drag to resize"
-      />
 
       {/* Handles */}
       <Handle

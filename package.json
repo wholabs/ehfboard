@@ -10,7 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dbml/core": "^8.3.1",
+    "@monaco-editor/react": "^4.7.0",
     "@tldraw/tldraw": "^4.5.8",
+    "dagre": "^0.8.5",
+    "html-to-image": "^1.11.13",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "reactflow": "^11.11.4",

@@ -27,7 +27,7 @@ function WhiteboardCanvas({ resetToken, undoToken }) {
   }, [resetToken]);
 
   return (
-    <div className="h-full w-full relative bg-white">
+    <div className="h-full w-full relative bg-white dark:bg-slate-900">
       <Tldraw
         persistenceKey={persistenceKey}
         onMount={(editor) => {
