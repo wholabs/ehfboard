@@ -1,14 +1,15 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, lazy, Suspense } from "react";
 import { toPng, toSvg } from "html-to-image";
 import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
 import FlowCanvas from "./components/FlowCanvas";
-import WhiteboardCanvas from "./components/WhiteboardCanvas";
 import ERDCanvas from "./components/ERDCanvas";
 import { useStore } from "./hooks/useStore";
 import { exportProjectAsJson, parseImportedProject } from "./utils/storage";
 import { generateFromCode } from "./utils/erdGenerator";
 import CodeGeneratorModal from "./components/CodeGeneratorModal";
+
+const WhiteboardCanvas = lazy(() => import("./components/WhiteboardCanvas"));
 
 function App() {
   const [whiteboardUndoToken, setWhiteboardUndoToken] = useState(0);
@@ -232,10 +233,12 @@ function App() {
 
         <main className="flex-1 relative bg-white overflow-hidden dark:bg-slate-900">
           {mode === "whiteboard" && (
-            <WhiteboardCanvas
-              undoToken={whiteboardUndoToken}
-              resetToken={whiteboardResetToken}
-            />
+            <Suspense fallback={<div className="h-full w-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-sm">Loading whiteboard...</div>}>
+              <WhiteboardCanvas
+                undoToken={whiteboardUndoToken}
+                resetToken={whiteboardResetToken}
+              />
+            </Suspense>
           )}
           {mode === "flowchart" && <FlowCanvas canvasRef={flowRef} />}
           {mode === "erd" && <ERDCanvas canvasRef={erdRef} />}
